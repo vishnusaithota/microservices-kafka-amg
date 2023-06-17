@@ -27,3 +27,11 @@ services:
     networks:
       - postgres
     restart: unless-stopped
+
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+  postgres:
+  pgadmin:
