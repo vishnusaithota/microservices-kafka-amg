@@ -41,6 +41,14 @@ services:
     networks:
       - postgres
     restart: unless-stopped
+  mongodb:
+    container_name: mongodb-fraud
+    image: mongo
+    ports:
+      - "27018:27017"
+    volumes:
+      - ./mongodbData:/data/db
+    restart: unless-stopped
 
 networks:
   postgres:
@@ -50,3 +58,4 @@ volumes:
   postgres:
   pgadmin:
   postgres-test:
+  mongodbData:

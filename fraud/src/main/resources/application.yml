@@ -4,3 +4,7 @@ server:
 spring:
   application:
     name: fraud
+  data:
+    mongodb:
+      uri: mongodb://localhost:27018/fraud
+      auto-index-creation: true
