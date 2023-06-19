@@ -1,9 +1,6 @@
 package org.spiderweb.fraud.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Generated;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,10 +10,11 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class FraudCheckHistory {
 
     @Id
-    private Integer id;
+    private String id;
     private Integer customerId;
     private Boolean isFraud;
     private LocalDateTime createdAt;

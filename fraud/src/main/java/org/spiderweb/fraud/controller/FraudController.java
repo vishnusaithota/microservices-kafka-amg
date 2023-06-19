@@ -14,11 +14,16 @@ import java.util.List;
 @Slf4j
 public record FraudController(FraudCheckService fraudCheckService) {
 
-    @PostMapping("/{customerId}")
+    @GetMapping("/{customerId}")
     public FraudCheckResponse isFraudster(@PathVariable("customerId") Integer customerId) {
         boolean isFraudulentCustomer = fraudCheckService.isFraudulentCustomer(customerId);
+        log.info("Fraud Check Request {}",customerId);
+        return new FraudCheckResponse(isFraudulentCustomer);
+    }
 
-        return new FraudCheckResponse(false);
+    @GetMapping()
+    public List<FraudCheckHistory> getAll(){
+        return fraudCheckService.getAll();
     }
 
 }
